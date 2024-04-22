@@ -56,7 +56,45 @@
             day.innerText = days;
         };
 
+        const curDate = document.getElementById('today_date');
+        const getCurrentTime = () => {
+            var months = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "June",
+            "July",
+            "Aug",
+            "Sept",
+            "Oct",
+            "Nov",
+            "Dec",
+            ];
+
+            var now = new Date();
+            var month = months[now.getMonth()];
+            var date = now.getDate();
+
+            let hours = now.getHours();
+            let mins = now.getMinutes();
+
+            let periods = "AM";
+
+            if (hours > 11) {
+            periods = "PM";
+            if (hours > 12) hours -= 12;
+            }
+            if (mins < 10) {
+            mins = "0" + mins;
+            }
+
+            return `${date} ${month} | ${hours}:${mins}${periods} IST`;
+        };
+
         getCurrentDay();
+        curDate.innerHTML = getCurrentTime();
     </script>
 </body>
 </html>
