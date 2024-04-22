@@ -11,14 +11,12 @@ const getInfo = async(event) => {
     event.preventDefault();
 
     let cityVal = cityName.value;
-    console.log(cityVal);
 
     if(cityVal === ""){
         city_name.innerText = `Please provide a correct name.if stmt`;
         datahide.classList.add("data_hide");
     }else{
         try{
-            console.log(cityVal);
             let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=f6dbfcf9f03d21a40ad93119b6cb8d19`;
             const response = await fetch(url);
 
